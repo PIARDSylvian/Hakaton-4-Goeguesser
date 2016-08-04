@@ -1,6 +1,6 @@
-{% extends "AppBundle::layout.html.twig" %}
-{% block body %}
-{% include "AppBundle::register_content.html.twig" %}
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
 <div class="row">
 	<div class="col-md-4 col-md-offset-4 login">
 		<a href="./">
@@ -56,7 +56,7 @@
 		</div>
 		<div class="row">
 		    <div class="col-md-12">
-		        <input class="btn btn-info" type="submit" value="{{ 'registration.submit'|trans }}" />
+		        <input class="btn btn-info" type="submit" value="{{ 'Créer mon compte'|trans }}" />
 		    </div>
 		</div>
 		<div class="row">
@@ -64,7 +64,4 @@
 		    	<p>Déjà inscrit! <a href="{{path('user_login')}}">Connectez-vous</a></p>
 		    </div>
 		</div>		
-		{{ form_end(form) }}
-	</div>
-</div>
-{% endblock body %}
+		{{ form_end(form) }}{% endblock fos_user_content %}

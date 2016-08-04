@@ -17,4 +17,4 @@ ged_homepage:
 
 user_register:
     path:     /register
-    defaults: { _controller: FOSuserBundle:Registration:register }
+    defaults: { _controller: GeoGuesserBundle:Registration:register }
