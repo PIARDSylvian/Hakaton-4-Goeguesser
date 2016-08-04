@@ -1,0 +1,4 @@
+services:
+#    geo_guesser.example:
+#        class: GeoGuesserBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
