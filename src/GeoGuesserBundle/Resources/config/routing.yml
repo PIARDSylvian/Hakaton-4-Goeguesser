@@ -1,0 +1,4 @@
+#homepage
+ged_homepage:
+    path:     /
+    defaults: { _controller: GeoGuesserBundle:Default:index }

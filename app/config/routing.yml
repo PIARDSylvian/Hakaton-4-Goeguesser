@@ -1,11 +1,6 @@
-geo_guesser:
-    resource: "@GeoGuesserBundle/Controller/"
-    type:     annotation
+GeoGuesser:
+    resource: "@GeoGuesserBundle/Resources/config/routing.yml"
     prefix:   /
-
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
 
 # app/config/routing.yml
 fos_user:
