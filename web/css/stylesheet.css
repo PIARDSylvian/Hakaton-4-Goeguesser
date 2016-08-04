@@ -4,3 +4,36 @@
 	border: solid #1fa597 2px;
 	color: #35383a;
 }
+
+.box {
+	background-color: white;
+	border-radius: 5px;
+	border: solid #1fa597 2px;
+	color: ;
+	margin-top:100px;
+	opacity: 0.63;
+}
+.box h2 {
+	padding-left: 15px;
+	
+	padding-top: 10px;
+}
+.box p {
+	color: white;
+}
+
+.mini-box{
+	
+	padding-top: 120px;
+
+}
+
+body {
+    background: url(../css/img/desert.jpg) repeat center ;
+}
+.box:hover {
+	opacity: 1;
+	background: url(../css/img/route.jpg) repeat center;
+	
+
+}

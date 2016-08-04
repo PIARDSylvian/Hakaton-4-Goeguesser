@@ -1,7 +1,28 @@
 {% extends "GeoGuesserBundle::layout.html.twig" %}
 {% block body %}
-<div class="col-md-12">
-	vous avez un compte ?
-	<a class="btn btn-default">Ce connecter</a>
+
+ 
+<div class="col-md-offset-4 col-md-4 box">
+  <h2> Bienvenue sur Geoguesser </h2>
+  <div class=" col-md-offset-4 ">   
+
+      <img class="main-logo" src="{{ asset('css/img/world.png') }}" />     
+  </div>
+    <div class="col-md-12">
+      
+          <div class=" col-md-6 mini-box">  	
+
+              <p>Vous avez un compte ?<p>
+            	<a href="{{ path('user_login') }}"><input type="button" class="btn btn-info" value="Se connecter"/></a>
+          </div>
+            <div class=" col-md-6 mini-box">   
+
+                <p>Pas encore inscrit ?<p>
+               <a href="{{ path('user_register') }}"><input type="button" class="btn btn-info" value="Créer un compte"/></a>
+
+            </div>
+    </div>
+
+</div>
 {% endblock body %}
 
