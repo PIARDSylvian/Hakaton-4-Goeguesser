@@ -12,8 +12,16 @@ class DefaultController extends Controller
         return $this->render('GeoGuesserBundle::index.html.twig');
     }
 
-        public function gameAction()
+    public function gameAction()
     {
-        return $this->render('GeoGuesserBundle::game.html.twig');
+    	$lng =-71.098326;
+    	$lat =42.345573;
+
+        return $this->render('GeoGuesserBundle::game.html.twig',
+        	array(
+	        	'lng'=>$lng,
+	        	'lat'=>$lat,
+        	)
+        );
     }
 }

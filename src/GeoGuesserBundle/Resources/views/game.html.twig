@@ -1,29 +1,47 @@
 {% extends "GeoGuesserBundle::layout.html.twig" %}
 {% block body %}
 <div class="col-md-12" id="pano">
-<div class="col-md-4" id="map"></div>
-</div>   
+    <div class="col-md-4" id="map"></div>
+</div>
+ 
 <script>
-function initMap() {
-var map = new google.maps.Map(document.getElementById('map'), {
-center: {lat: -34.397, lng: 150.644},
-scrollwheel: false,
-zoom: 8
-});
-var fenway = {lat: -34.397, lng: 150.644};
-var panorama = new google.maps.StreetViewPanorama(
-document.getElementById('pano'), {
-position: fenway,
-pov: {
-heading: 34,
-pitch: 10
-}
-});
-
-}
+    function initMap() {
+        var mark=0;
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 1.000, lng: 1.000},
+            zoom: 0,
+            streetViewControl: false
+        });
+        var fenway = {lat: {{ lat }}, lng: {{ lng }}};
+        var panorama = new google.maps.StreetViewPanorama(
+        	document.getElementById('pano'), {
+            position: fenway,
+            pov: {
+                heading: 34,
+                pitch: 10
+            },
+            panControl:false
+        });
+    var marker
+    google.maps.event.addListener(map, 'click', function (event) {
+        if (marker==null){
+            marker = new google.maps.Marker({
+                        map: map,
+                        position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng())
+                    });
+        }
+        else{
+               marker.setMap(null);
+               marker = new google.maps.Marker({
+                        map: map,
+                        position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng())
+                    }); 
+        }
+    });
+    }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPa-lInPBnwmvKmSIcO2949-KWzmULmD4&callback=initMap"
-async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPa-lInPBnwmvKmSIcO2949-KWzmULmD4&callback=initMap"
+    async defer></script>
 
 {% endblock body %}
 
