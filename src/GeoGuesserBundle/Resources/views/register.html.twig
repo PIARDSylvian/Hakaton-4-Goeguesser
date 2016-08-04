@@ -1,4 +1,70 @@
 {% extends "AppBundle::layout.html.twig" %}
 {% block body %}
 {% include "AppBundle::register_content.html.twig" %}
+<div class="row">
+	<div class="col-md-4 col-md-offset-4 login">
+		<a href="./">
+          <img src="{{ asset('img/WCS.png') }}"/>
+		 </a>
+		{{ form_start(form, {'method': 'post', 'action': path('user_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+		<div class="row">
+			<div class="col-md-6">
+				<label>Nom d'utilisateur :</label>
+			</div>
+			<div class="col-md-6">
+				{{ form_widget(form.username) }}
+				{{ form_errors(form.username) }}	
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<label>Adresse email :</label>
+			</div>
+			<div class="col-md-6">
+				{{ form_widget(form.email) }}
+				{{ form_errors(form.email) }}	
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<label>Âge :</label>
+			</div>
+			<div class="col-md-6">
+				<input type="number" name="age" />
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<label>Mot de passe :</label>
+			</div>
+			<div class="col-md-6">
+				{{ form_widget(form.plainPassword.first) }}
+				{{ form_errors(form.plainPassword.first) }}	
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<label>Confirmation :</label>
+			</div>
+			<div class="col-md-6">
+				{{ form_widget(form.plainPassword.second) }}
+				{{ form_errors(form.plainPassword.second) }}	
+			</div>
+		</div>
+		<div class="row">
+		    <div class="col-md-12">
+		        <input class="btn btn-info" type="submit" value="{{ 'registration.submit'|trans }}" />
+		    </div>
+		</div>
+		<div class="row">
+		    <div class="col-md-12 ">
+		    	<p>Déjà inscrit! <a href="{{path('user_login')}}">Connectez-vous</a></p>
+		    </div>
+		</div>		
+		{{ form_end(form) }}
+	</div>
+</div>
 {% endblock body %}

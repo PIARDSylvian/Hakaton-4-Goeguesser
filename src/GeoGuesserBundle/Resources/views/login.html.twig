@@ -6,20 +6,61 @@
 {% if error %}
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
-<div style="text-align:center;" >
-<form action="{{ path("fos_user_security_check") }}" style="text-align:center;" method="post">
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-
-    <label for="username">{{ 'security.login.username'|trans }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
-
-    <label for="password">{{ 'security.login.password'|trans }}</label>
-    <input type="password" id="password" name="_password" required="required" />
-
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-</form>
-</div>
+<div class="col-md-12">
+    		<div class="col-md-4"></div>
+    		<div class="col-md-4">
+    			<div class="col-md-1"></div>
+    			<div class="col-md-10">
+    				{# <img class="main-logo" src="{{ asset('img/mainlogo.png') }}" /> #}
+    			</div>
+    			<div class="col-md-1"></div>
+    		</div>
+    		<div class="col-md-4"></div>
+    	</div>
+    	<div class="col-md-12">
+			<div class="col-md-6 col-md-offset-3 login">
+				<div class="col-md-12">
+					<h2 class="log-title">CONNEXION</h2>
+				</div>
+				<div class="col-md-12">
+					{% if error %}
+					    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+					{% endif %}
+				</div>
+					<form action="{{ path("user_login_check") }}" method="post">
+					    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+						<div class="col-md-12">
+							<div class="col-md-5">
+							    <label for="username"><span>Pseudo :</span></label>
+							</div>
+							<div class="col-md-6">
+							    <input class="champ-log" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+							</div>
+						</div>
+						<div class"col-md-12">
+							<div class="col-md-5">
+							    <label for="password"><span>Mot de Passe :</span></label>
+							</div>
+							<div class="col-md-6">
+							    <input class="champ-log" type="password" id="password" name="_password" required="required" />
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="col-md-3"></div>
+							<div class="col-md-4">
+							    <label for="remember_me"><span>Se souvenir de moi :</span></label>
+							</div>
+							<div class="col-md-1">
+							    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="col-md-5"></div>
+							<div class="col-md-4">
+							    <input type="submit" class="btnlogin" id="_submit" name="_submit" value="Envoyer" />
+							</div>
+						</div>
+					</form>
+			</div>
+		</div>
 {% endblock body %}

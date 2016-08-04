@@ -14,3 +14,7 @@ user_logout:
 ged_homepage:
     path:     /
     defaults: { _controller: GeoGuesserBundle:Default:index }
+
+user_register:
+    path:     /register
+    defaults: { _controller: FOSuserBundle:Registration:register }
