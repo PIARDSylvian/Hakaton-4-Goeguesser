@@ -2,7 +2,7 @@
 parameters:
     database_host: 127.0.0.1
     database_port: null
-    database_name: Hakaton-4-Goeguesser
+    database_name: Hakaton-4-Geoguesser
     database_user: root
     database_password: difool28
     mailer_transport: smtp
