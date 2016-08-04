@@ -3,10 +3,15 @@
     <head>
         <meta charset="UTF-8" />
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+        <script type="text/javascript" src="{{ asset('js/jquery-1.12.2.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">
     </head>
     <body>
+        <header>
+            <h1>GeoGuesser</h1>
+        </header>
         <div>
             {% block body %}
             {% endblock body %}
