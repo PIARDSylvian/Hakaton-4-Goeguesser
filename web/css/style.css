@@ -4,8 +4,12 @@ body{
 
 #map {
 	height: 200px;
+	position: absolute;
+	z-index: 2;
+	right: 0;
+	top:0;
 }
 
 #pano {
-	height: 60vh;
+	height: 80vh;
 }
