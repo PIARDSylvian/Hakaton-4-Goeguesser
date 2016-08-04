@@ -7,11 +7,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class DefaultController extends Controller
 {
-    /**
-     * @Route("/")
-     */
     public function indexAction()
     {
         return $this->render('GeoGuesserBundle::index.html.twig');
+    }
+
+        public function gameAction()
+    {
+        return $this->render('GeoGuesserBundle::game.html.twig');
     }
 }

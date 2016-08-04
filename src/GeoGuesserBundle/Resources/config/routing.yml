@@ -10,11 +10,16 @@ user_logout:
     path:     /logout
     defaults: { _controller: GeoGuesserBundle:Security:logout }
 
-#homepage
-ged_homepage:
-    path:     /
-    defaults: { _controller: GeoGuesserBundle:Default:index }
-
 user_register:
     path:     /register
     defaults: { _controller: GeoGuesserBundle:Registration:register }
+
+#homepage
+homepage:
+    path:     /
+    defaults: { _controller: GeoGuesserBundle:Default:index }
+
+#game
+game:
+    path:     /game
+    defaults: { _controller: GeoGuesserBundle:Default:game }
