@@ -20,6 +20,8 @@ class DefaultController extends Controller
     {
         $em=$this->getDoctrine()->getManager();
 
+        $user=$this->getUser();
+
         $map = $em->getRepository('GeoGuesserBundle:Map')->findOneRandom();
 
     	// ici on injecte les valeur de la map
@@ -30,6 +32,7 @@ class DefaultController extends Controller
         	array(        		  
 	        	'lng'=>$lng,
 	        	'lat'=>$lat,
+                'user'=>$user,
         	)
         );
     }
@@ -94,11 +97,11 @@ class DefaultController extends Controller
         }
 
         $em=$this->getDoctrine()->getManager();
-        $user=$this->getUser()->getId();
+        $user=$this->getUser();
 
         $party = new party;
 
-        $party->setIduser($user);
+        $party->setIduser($user->getId());
         $party->setDate( new DateTime());
         $party->setPts($pts);
         $party->setPtstt($pts);
@@ -117,20 +120,24 @@ class DefaultController extends Controller
                 'repLat'=>$repLat,
                 'pts'=>$pts,
                 'cash'=>$cash,
+                'user'=>$user,
         	)
         );
     }
 
     public function selectAction()
     {
+        $user=$this->getUser();
         return $this->render('GeoGuesserBundle::add.html.twig',
-            array()
+            array('user'=>$user,)
         );
     }
 
     public function addAction(Request $request)
     {
         $em=$this->getDoctrine()->getManager();
+
+        $user=$this->getUser();
 
         $name = $request->request->get('name');
         $lng = $request->request->get('lng');
@@ -148,7 +155,7 @@ class DefaultController extends Controller
         $this->get('session')->getFlashBag()->set('success', 'point ajouté');
 
         return $this->render('GeoGuesserBundle::add.html.twig',
-            array()
+            array('user'=>$user,)
         );
     }
 }
