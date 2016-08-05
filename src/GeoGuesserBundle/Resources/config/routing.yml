@@ -24,11 +24,16 @@ game:
     path:     /game
     defaults: { _controller: GeoGuesserBundle:Default:game }
 
+
+profil:
+    path:     /profil
+    defaults: { _controller: GeoGuesserBundle:Profil:index }
+
 #resultat
 result:
     path:     /gameresult
     defaults: { _controller: GeoGuesserBundle:Default:gameResult }
-   
+
 #select place
 place_select:
     path:     /select
@@ -38,3 +43,4 @@ place_select:
 add_place:
     path:     /add
     defaults: { _controller: GeoGuesserBundle:Default:add }
+
