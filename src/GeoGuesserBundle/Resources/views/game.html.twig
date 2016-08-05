@@ -9,12 +9,12 @@
             <input id="lat" type="hidden" name="lat" autocomplete="off">
             <input id="geolng" type="hidden" name="geolng" autocomplete="off">
             <input id="geolat" type="hidden" name="geolat" autocomplete="off">
-            <button class="btn btn-default" id="send">trouvé ?</button>        
+            <button class="btn btn-default" id="send">trouvé ?</button>       
         </form>
     </div>
 </div> 
-<script>
-// var path = {{path('result')}};
+<script>    
+var path = "{{path('result')}}";
 var compte = 5;
 function decompte()
 { 
@@ -27,7 +27,13 @@ function decompte()
     if(compte == 0){
         setTimeout(function(){
             alert('redirection');
-            document.location.href=path
+            document.location.href=path;
+
+            var evt = document.createEvent("MouseEvents");
+            evt.initMouseEvent("click", true, true, window,0, 0, 0, 0, 0, false, false, false, false, 0, null);
+            document.getElementById("send").dispatchEvent(evt);
+
+
         },3000);        
     }
 }
@@ -80,7 +86,6 @@ function initMap() {
         $("#geolng").val(geoLng);
         $("#geolat").val(geoLat);
     });
-
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPa-lInPBnwmvKmSIcO2949-KWzmULmD4&callback=initMap"

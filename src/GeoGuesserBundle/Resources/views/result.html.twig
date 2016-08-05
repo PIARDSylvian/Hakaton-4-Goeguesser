@@ -1,7 +1,11 @@
 {% extends "GeoGuesserBundle::layout.html.twig" %}
 {% block body %}
 <div class="result">
-    <p>Vous vous situer à {{ distance }}km</p>
+    {% if distance != null %}
+    <p>Vous vous situer à {{ distance }} km</p>
+    {% else %}
+    <p>Vous n'avez pas defini de points</p>
+    {% endif %}
     <p>Vous gagnez {{ pts }} points</p>
     <p>Vous gagnez {{ cash }} cash</p>
 </div>
@@ -22,15 +26,17 @@ function initMap() {
         title: 'point a trouver',
         animation: google.maps.Animation.BOUNCE
     });
-
-    // point donné.
-    var repLatLng = {lat: {{ repLat }} , lng: {{ repLng }} };
-    var marker = new google.maps.Marker({
-        position: repLatLng,
-        map: map,
-        title: 'le votre',
-        animation: google.maps.Animation.DROP
-    });
+    
+    if({{ repLat }} !=0 && {{ repLng }} !=0){
+        // point donné.
+        var repLatLng = {lat: {{ repLat }} , lng: {{ repLng }} };
+        var marker = new google.maps.Marker({
+            position: repLatLng,
+            map: map,
+            title: 'le votre',
+            animation: google.maps.Animation.DROP
+        });
+    }
 
 }
 </script>

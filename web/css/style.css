@@ -35,13 +35,14 @@ body{
 #send{
 	z-index: 2;
 	font-weight: bold;
-	width: 80%;
+	width: 85%;
 	margin-left:15%; 
 	margin-top:10px;
 }
 
 #propose{
 	height: 70vh;
+	margin-top: 10px;
 }
 
 .map_name{
@@ -58,10 +59,12 @@ body{
 
 .alert{
 	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 0;
 }
 
 #mapResult{
-	height: 70vh;
+	height: 75vh;
 	border: solid 1px #919191;
 }
 
