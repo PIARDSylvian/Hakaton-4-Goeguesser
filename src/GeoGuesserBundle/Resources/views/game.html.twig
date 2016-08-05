@@ -1,28 +1,62 @@
 {% extends "GeoGuesserBundle::layout.html.twig" %}
 {% block body %}
 <div class="col-md-12" id="pano">
-    <div class="col-md-4" id="map"></div>
-</div>
- 
+    <div class="col-md-3 container">
+        <div class="col-md-1 badge" id="compt"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></div>
+        <div class="col-md-10 col-md-offset-1" id="map"></div>
+        <form action="{{ path('result') }}" method="post">
+            <input id="lng" type="hidden" name="lng" autocomplete="off">
+            <input id="lat" type="hidden" name="lat" autocomplete="off">
+            <input id="geolng" type="hidden" name="geolng" autocomplete="off">
+            <input id="geolat" type="hidden" name="geolat" autocomplete="off">
+            <button class="btn btn-default" id="send">trouvé ?</button>        
+        </form>
+    </div>
+</div> 
 <script>
-    function initMap() {
-        var mark=0;
-        var map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 1.000, lng: 1.000},
-            zoom: 0,
-            streetViewControl: false
-        });
-        var fenway = {lat: {{ lat }}, lng: {{ lng }}};
-        var panorama = new google.maps.StreetViewPanorama(
-        	document.getElementById('pano'), {
-            position: fenway,
-            pov: {
-                heading: 34,
-                pitch: 10
-            },
-            panControl:false
-        });
-    var marker
+// var path = {{path('result')}};
+var compte = 5;
+function decompte()
+{ 
+    document.getElementById("compt").innerHTML = compte; 
+        if(compte == 0 || compte < 0) {
+        compte = 0; 
+        clearInterval(timer);
+        } 
+    compte--;
+    if(compte == 0){
+        setTimeout(function(){
+            alert('redirection');
+            document.location.href=path
+        },3000);        
+    }
+}
+var timer = setInterval('decompte()',1000);
+
+function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 1.000, lng: 1.000},
+        zoom: 0,
+        streetViewControl: false
+    });
+    var geoLat = {{ lat }};
+    var geoLng = {{ lng }};
+
+    var fenway = {lat: geoLat, lng: geoLng};
+    var panorama = new google.maps.StreetViewPanorama(
+    	document.getElementById('pano'), {
+        position: fenway,
+        pov: {
+            heading: 34,
+            pitch: 10
+        },
+        addressControl:false
+    });
+
+    var marker;
+    var lng;
+    var lat;
+
     google.maps.event.addListener(map, 'click', function (event) {
         if (marker==null){
             marker = new google.maps.Marker({
@@ -34,14 +68,23 @@
                marker.setMap(null);
                marker = new google.maps.Marker({
                         map: map,
-                        position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng())
-                    }); 
+                        position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()),
+                    });                   
         }
+        lng = event.latLng.lng();
+        lat = event.latLng.lat();
     });
-    }
+    $("#send").click(function(){
+        $("#lng").val(lng);
+        $("#lat").val(lat);
+        $("#geolng").val(geoLng);
+        $("#geolat").val(geoLat);
+    });
+
+}
 </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPa-lInPBnwmvKmSIcO2949-KWzmULmD4&callback=initMap"
-    async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPa-lInPBnwmvKmSIcO2949-KWzmULmD4&callback=initMap"
+async defer></script>
 
 {% endblock body %}
 

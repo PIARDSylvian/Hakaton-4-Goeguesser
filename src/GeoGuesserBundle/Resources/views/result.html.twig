@@ -1,0 +1,40 @@
+{% extends "GeoGuesserBundle::layout.html.twig" %}
+{% block body %}
+<div class="result">
+    <p>Vous vous situer à {{ distance }}km</p>
+    <p>Vous gagnez {{ pts }} points</p>
+    <p>Vous gagnez {{ cash }} cash</p>
+</div>
+<div class="col-md-10 col-md-offset-1" id="mapResult"></div>
+<script>
+function initMap() {
+    var map = new google.maps.Map(document.getElementById('mapResult'), {
+        center: {lat: 1.000, lng: 1.000},
+        zoom: 2,
+        streetViewControl: false
+    });
+
+    //point a decouvrir.
+    var geoLatLng = {lat: {{ geoLat }} , lng: {{ geoLng }} };
+    var marker = new google.maps.Marker({
+        position: geoLatLng,
+        map: map,
+        title: 'point a trouver',
+        animation: google.maps.Animation.BOUNCE
+    });
+
+    // point donné.
+    var repLatLng = {lat: {{ repLat }} , lng: {{ repLng }} };
+    var marker = new google.maps.Marker({
+        position: repLatLng,
+        map: map,
+        title: 'le votre',
+        animation: google.maps.Animation.DROP
+    });
+
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPa-lInPBnwmvKmSIcO2949-KWzmULmD4&callback=initMap"
+async defer></script>
+
+{% endblock body %}
