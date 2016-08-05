@@ -3,8 +3,12 @@
 	border-radius: 5px;
 	border: solid #1fa597 2px;
 	color: #35383a;
+    margin-top: 150px;
 }
-
+.login h2 {
+    text-align: center;
+    padding-top: 15px;
+}
 .box {
 	background-color: white;
 	border-radius: 5px;
@@ -17,6 +21,7 @@
 	padding-left: 15px;
 	
 	padding-top: 10px;
+    text-align: center;
 }
 .box p {
 	color: white;
@@ -27,13 +32,15 @@
 	padding-top: 120px;
 
 }
-
+.lolo{
+    width: 30%;
+}
 body {
     background: url(../css/img/desert.jpg) repeat center ;
 }
 .box:hover {
 	opacity: 1;
-	background: url(../css/img/route.jpg) repeat center;
+	background: url(../css/img/route.jpg) center;
 	
 
 }
