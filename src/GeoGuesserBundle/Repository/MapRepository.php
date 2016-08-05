@@ -12,4 +12,20 @@ use Doctrine\ORM\EntityRepository;
  */
 class MapRepository extends EntityRepository
 {
+	public function findOneRandom()
+    {
+        $em = $this->getEntityManager();
+        $max = $em->createQuery('
+            SELECT MAX(q.id) FROM GeoGuesserBundle:Map q
+            ')
+            ->getSingleScalarResult();
+        return $em->createQuery('
+            SELECT q FROM GeoGuesserBundle:Map q
+            WHERE q.id >= :rand
+            ORDER BY q.id ASC
+            ')
+            ->setParameter('rand',rand(0,$max))
+            ->setMaxResults(1)
+            ->getSingleResult();
+    }
 }

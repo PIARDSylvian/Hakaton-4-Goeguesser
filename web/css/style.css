@@ -2,18 +2,71 @@ body{
 	background-color: #f1f1f1;
 }
 
-#map {
+.navbar{
+	margin-bottom: 0;
+}
+
+.container{
 	height: 200px;
 	position: absolute;
 	z-index: 2;
 	right: 0;
 	top:0;
+	padding:0;
 }
 
-#pano {
-	height: 80vh;
+#compt{
+	font-size:20px;
+	margin-top: 10px;
+}
+
+#map{
+	height: 200px;
+}
+
+#pano{
+	height: 92vh;
 }
 
 #pano text{
 	display: none;
+}
+
+#send{
+	z-index: 2;
+	font-weight: bold;
+	width: 80%;
+	margin-left:15%; 
+	margin-top:10px;
+}
+
+#propose{
+	height: 70vh;
+}
+
+.map_name{
+	width: 80%;
+	margin-left:10%; 
+	margin-top:10px;
+}
+
+#send_propose{
+	width: 80%;
+	margin-left:10%; 
+	margin-top:10px;
+}
+
+.alert{
+	text-align: center;
+}
+
+#mapResult{
+	height: 70vh;
+	border: solid 1px #919191;
+}
+
+.result{
+	text-align: center;
+	font-weight: bold;
+	background-color: #f1f1f1;
 }
