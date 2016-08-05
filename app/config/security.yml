@@ -19,7 +19,7 @@ security:
                 csrf_token_generator: security.csrf.token_manager
                 login_path:     user_login
                 check_path:     user_login_check
-                default_target_path:    index
+                default_target_path:    profil
 
 
             logout:       true
