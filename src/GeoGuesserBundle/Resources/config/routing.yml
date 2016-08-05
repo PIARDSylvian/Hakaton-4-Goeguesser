@@ -23,3 +23,7 @@ homepage:
 game:
     path:     /game
     defaults: { _controller: GeoGuesserBundle:Default:game }
+
+profil:
+    path:     /profil
+    defaults: { _controller: GeoGuesserBundle:Profil:index }
