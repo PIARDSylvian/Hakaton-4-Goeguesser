@@ -2,8 +2,8 @@
 {% block body %}
 <div class="col-md-12" id="pano">
     <div class="col-md-3 container">
-        <div class="col-md-1 badge" id="compt"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></div>
-        <div class="col-md-10 col-md-offset-1" id="map"></div>
+        <div class="col-md-2 badge" id="compt"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></div>
+        <div class="col-md-10" id="map"></div>
         <form action="{{ path('result') }}" method="post">
             <input id="lng" type="hidden" name="lng" autocomplete="off">
             <input id="lat" type="hidden" name="lat" autocomplete="off">
@@ -15,7 +15,7 @@
 </div> 
 <script>    
 var path = "{{path('result')}}";
-var compte = 5;
+var compte = 30;
 function decompte()
 { 
     document.getElementById("compt").innerHTML = compte; 
@@ -26,7 +26,6 @@ function decompte()
     compte--;
     if(compte == 0){
         setTimeout(function(){
-            alert('redirection');
             document.location.href=path;
 
             var evt = document.createEvent("MouseEvents");

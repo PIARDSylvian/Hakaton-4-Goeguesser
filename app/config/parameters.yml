@@ -4,7 +4,7 @@ parameters:
     database_port: null
     database_name: Hakaton-4-Geoguesser
     database_user: root
-    database_password: difool28
+    database_password: kikijess00
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: null

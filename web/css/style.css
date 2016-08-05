@@ -73,3 +73,8 @@ body{
 	font-weight: bold;
 	background-color: #f1f1f1;
 }
+
+.badge{
+	width: 50px;
+	margin-left: 3px;
+}
